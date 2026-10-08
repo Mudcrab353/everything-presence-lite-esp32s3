@@ -118,7 +118,7 @@ number:
     on_value:
       - lambda: 'id(illuminance_sensor).update();'
 
-sensor:
+#sensor:
 #  - platform: bh1750
 #    name: Illuminance
 #    id: illuminance_sensor
