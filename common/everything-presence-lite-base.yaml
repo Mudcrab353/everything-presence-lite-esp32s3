@@ -134,33 +134,33 @@ sensor:
 #      - clamp:
 #          min_value: 0
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: CHIP_PU
-      inverted: true
-      ignore_strapping_warning: true
-    id: flash_button
-    internal: True
-    filters:
-      - delayed_on: 50ms 
-    on_multi_click:
-      - timing:
-          - ON for 0.2s to 3s
-          - OFF for 0.1s to 2s
-          - ON for 0.2s to 3s
-          - OFF for 0.1s to 2s
-          - ON for at least 5s 
-        then:
-          - repeat: 
-              count: 5
-              then:
-                - light.turn_on: esp32_led
-                - delay: 150ms
-                - light.turn_off: esp32_led
-                - delay: 150ms
-          - light.turn_on: esp32_led
-          - button.press: factory_reset_button
+#binary_sensor:
+#  - platform: gpio
+#    pin:
+#      number: CHIP_PU
+#      inverted: true
+#      ignore_strapping_warning: true
+#    id: flash_button
+#    internal: True
+#    filters:
+#      - delayed_on: 50ms 
+#    on_multi_click:
+#      - timing:
+#          - ON for 0.2s to 3s
+#          - OFF for 0.1s to 2s
+#          - ON for 0.2s to 3s
+#          - OFF for 0.1s to 2s
+#          - ON for at least 5s 
+#        then:
+#          - repeat: 
+#              count: 5
+#              then:
+#                - light.turn_on: esp32_led
+#                - delay: 150ms
+#                - light.turn_off: esp32_led
+#                - delay: 150ms
+#          - light.turn_on: esp32_led
+#          - button.press: factory_reset_button
 
 button:
   - platform: restart
